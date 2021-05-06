@@ -20,7 +20,7 @@ import ui.objects.AppDrawer
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityMainBinding // initializing objects
-    private lateinit var mToolbar: Toolbar
+   lateinit var mToolbar: Toolbar
     lateinit var mAppDrawer: AppDrawer
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initFields() {
         mToolbar = mBinding.mainToolbar
-        mAppDrawer = AppDrawer(this, mToolbar)
+        mAppDrawer = AppDrawer()
 
     }
 

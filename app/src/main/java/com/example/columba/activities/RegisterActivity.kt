@@ -10,7 +10,7 @@ import com.example.columba.utilits.replaceActivity
 import com.example.columba.utilits.replaceFragment
 import ui.fragments.EnterPhoneNumberFragment
 
-
+/* Activity for registering a new user*/
 class RegisterActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityRegisterBinding
     private lateinit var mToolbar: Toolbar

@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.fragment_settings.*
-
+/* Фрагмент настроек */
 class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
 
 
@@ -39,6 +39,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
     }
 
     private fun changePhotoUser() {
+        /* Изменения фото пользователя */
         CropImage.activity()
             .setAspectRatio(1, 1)
             .setRequestedSize(600, 600)
@@ -47,11 +48,13 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        /* Создания выпадающего меню*/
         activity?.menuInflater?.inflate(R.menu.settings_action_menu, menu)
     }
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        /* Слушатель выбора пунктов выпадающего меню */
         when (item.itemId) {
             R.id.settings_menu_exit -> {
                 AUTH.signOut()
@@ -63,6 +66,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
     }
 
     override fun onActivityResult(
+        /* Активность которая запускается для получения картинки для фото пользователя */
         requestCode: Int,
         resultCode: Int,
         data: Intent?

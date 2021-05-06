@@ -15,7 +15,7 @@ import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.fragment_enter_phone_number.*
 import java.util.concurrent.TimeUnit
 
-
+/* Фрагмент для ввода номера телефона при регистрации */
 class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) {
 
     private lateinit var mPhoneNumber:String
@@ -23,9 +23,11 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
 
     override fun onStart() {
         super.onStart()
-
+/* Callback который возвращает результат верификации */
         mCallback = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
             override fun onVerificationCompleted(credential: PhoneAuthCredential) { // method   verification check
+                /* Функция срабатывает если верификация уже была произведена,
+                * пользователь авторизируется в приложении без потверждения по смс */
                 AUTH.signInWithCredential(credential).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         showToast("Добро пожаловать ")
@@ -35,10 +37,12 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
             }
 
             override fun onVerificationFailed(p0: FirebaseException) { // method if there are problems with verification
+                /* Функция срабатывает если верификация не удалась*/
                 showToast(p0.message.toString())
             }
 
             override fun onCodeSent(id: String, token: PhoneAuthProvider.ForceResendingToken) {
+                /* Функция срабатывает если верификация впервые, и отправлена смс */
                 replaceFragment(EnterCodeFragment(mPhoneNumber,id))
             }
         }
@@ -46,6 +50,8 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
     }
 
     private fun sendCode() {
+        /* Функция проверяет поле для ввода номер телефона, если поле пустое выводит сообщение.
+         * Если поле не пустое, то начинает процедуру авторизации/ регистрации */
         if (register_input_phone_number.text.toString().isEmpty()) {
             showToast(getString(R.string.register_toast_enter_phone))
         } else {
@@ -55,6 +61,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
     }
 
     private fun authUser() {
+        /* Инициализация */
     mPhoneNumber = register_input_phone_number.text.toString()
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
         mPhoneNumber,
