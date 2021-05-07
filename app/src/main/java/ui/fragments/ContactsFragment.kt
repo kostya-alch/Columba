@@ -14,6 +14,7 @@ import com.google.firebase.database.DatabaseReference
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.contact_item.view.*
 import kotlinx.android.synthetic.main.fragment_contacts.*
+import ui.fragments.single_chat.SingleChatFragment
 
 
 class ContactsFragment : BaseFragment(R.layout.fragment_contacts) {
@@ -66,7 +67,11 @@ class ContactsFragment : BaseFragment(R.layout.fragment_contacts) {
 
                     holder.status.text = contact.state
                     holder.photo.downloadAndSetImage(contact.photoUrl)
-                    holder.itemView.setOnClickListener { replaceFragment(SingleChatFragment(model)) }
+                    holder.itemView.setOnClickListener { replaceFragment(
+                        SingleChatFragment(
+                            model
+                        )
+                    ) }
                 }
 
                 mRefUsers.addValueEventListener(mRefUsersListener)

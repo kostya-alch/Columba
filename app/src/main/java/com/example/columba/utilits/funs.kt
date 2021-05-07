@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment
 import com.example.columba.R
 import com.example.columba.models.CommonModel
 import com.squareup.picasso.Picasso
+import java.text.SimpleDateFormat
+import java.util.*
 
 // Extension functions
 /* File for storing utility functions available throughout the application */
@@ -97,4 +99,10 @@ fun initContacts() {
         updatePhonesToDatabase(arrayContacts)
 
     }
+}
+
+ fun String.asTime(): String {
+    val time = Date(this.toLong())
+    val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+    return timeFormat.format(time)
 }
