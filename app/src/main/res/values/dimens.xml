@@ -8,7 +8,7 @@
 
 
     <!-- Toolbar-->
-    <dimen name="toolbar_image_width">45dp</dimen>
+    <dimen name="toolbar_chat_image_width">45dp</dimen>
     <dimen name="toolbar_image_height">45dp</dimen>
 
 

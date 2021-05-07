@@ -1,20 +1,13 @@
 package com.example.columba
 
-import android.app.Activity
-import android.content.Context.INPUT_METHOD_SERVICE
-import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.example.columba.activities.RegisterActivity
 import com.example.columba.databinding.ActivityMainBinding
-import com.example.columba.models.User
 import com.example.columba.utilits.*
-import com.google.firebase.database.core.Context
-import com.theartofdev.edmodo.cropper.CropImage
 import ui.fragments.ChatsFragment
 import ui.objects.AppDrawer
 
