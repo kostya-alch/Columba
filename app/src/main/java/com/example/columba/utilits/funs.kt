@@ -7,11 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.columba.R
-import com.example.columba.activities.RegisterActivity
 import com.squareup.picasso.Picasso
-import de.hdodenhof.circleimageview.CircleImageView
-import kotlinx.android.synthetic.main.fragment_settings.*
-import ui.fragments.ChatsFragment
 
 // Extension functions
 /* File for storing utility functions available throughout the application */
@@ -32,12 +28,12 @@ fun AppCompatActivity.replaceFragment(fragment: Fragment, addStack: Boolean = tr
     if(addStack) {
         supportFragmentManager.beginTransaction()
             .addToBackStack(null)
-            .replace(R.id.dataContainer,
+            .replace(R.id.data_container,
                 fragment
             ).commit()
     } else {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.dataContainer,
+            .replace(R.id.data_container,
                 fragment
             ).commit()
     }
@@ -49,7 +45,7 @@ fun Fragment.replaceFragment(fragment: Fragment) {
     // fragment extension function, allows you to install fragments
     this.fragmentManager?.beginTransaction()
         ?.addToBackStack(null)
-        ?.replace(R.id.dataContainer,
+        ?.replace(R.id.data_container,
             fragment
         )?.commit()
 }

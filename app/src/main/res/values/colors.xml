@@ -8,10 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#F4A460</color>
+    <color name="colorOrangeWish">#EFDDCD</color>
     <color name="colorPrimaryDark">#AA6428</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="colorAccentDark">#FAF3F3</color>
     <color name="colorBlack">#000000</color>
+    <color name="Colorgreen">#56D37F</color>
     <color name="colorGrey">#D3B9B9</color>
     <!-- Material DEFAULT colors -->
     <color name="material_drawer_primary">#2196F3</color>
