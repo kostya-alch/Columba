@@ -5,10 +5,12 @@ import android.provider.ContactsContract
 import com.example.columba.models.CommonModel
 import com.example.columba.models.User
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+
 /* The file contains all the necessary tools for working with the database */
 
 lateinit var AUTH: FirebaseAuth
@@ -22,8 +24,6 @@ const val NODE_USERS = "users"
 const val NODE_PHONES_CONTACTS = "phones_contacts"
 const val NODE_USERNAMES = "usernames"
 const val NODE_PHONES = "phones"
-
-
 
 
 const val FOLDER_PROFILE_IMAGE = "profile_image"
@@ -113,10 +113,10 @@ fun initContacts() {
 }
 
 fun updatePhonesToDatabase(arrayContacts: ArrayList<CommonModel>) {
-    REF_DATABASE_ROOT.child(NODE_PHONES).addListenerForSingleValueEvent(AppValueEventListener{
-        it.children.forEach{ snapshot ->
+    REF_DATABASE_ROOT.child(NODE_PHONES).addListenerForSingleValueEvent(AppValueEventListener {
+        it.children.forEach { snapshot ->
             arrayContacts.forEach { contact ->
-                if (snapshot.key == contact.phone){
+                if (snapshot.key == contact.phone) {
                     REF_DATABASE_ROOT.child(NODE_PHONES_CONTACTS).child(CURRENT_UID)
                         .child(snapshot.value.toString()).child(CHILD_ID)
                         .setValue(snapshot.value.toString())
@@ -127,3 +127,6 @@ fun updatePhonesToDatabase(arrayContacts: ArrayList<CommonModel>) {
     })
 
 }
+
+fun DataSnapshot.getCommonModel(): CommonModel =
+    this.getValue(CommonModel::class.java) ?: CommonModel()
