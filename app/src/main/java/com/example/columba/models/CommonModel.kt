@@ -16,5 +16,9 @@ data class CommonModel(
     var timeStamp: Any = ""
 
 
-)
+) {
+    override fun equals(other: Any?): Boolean {
+        return (other as CommonModel).id == id
+    }
+}
 
