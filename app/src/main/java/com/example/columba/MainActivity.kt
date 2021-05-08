@@ -5,15 +5,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import com.example.columba.activities.RegisterActivity
+import com.example.columba.database.AUTH
+import com.example.columba.database.initFirebase
+import com.example.columba.database.initUser
 import com.example.columba.databinding.ActivityMainBinding
 import com.example.columba.utilits.*
-import ui.fragments.ChatsFragment
+import ui.fragments.MainFragment
+import ui.fragments.register.EnterPhoneNumberFragment
 import ui.objects.AppDrawer
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityMainBinding // initializing objects
-   lateinit var mToolbar: Toolbar
+    lateinit var mToolbar: Toolbar
     lateinit var mAppDrawer: AppDrawer
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,16 +34,13 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
     private fun initFunc() { // all MainActivity functionality
+        setSupportActionBar(mToolbar)
         if (AUTH.currentUser != null) { //checking for user authorization
-
-            setSupportActionBar(mToolbar)
             mAppDrawer.create()
-            replaceFragment(ChatsFragment(), false)
+            replaceFragment(MainFragment(), false)
         } else { // run register procedure
-            replaceActivity(RegisterActivity())
-
+            replaceFragment(EnterPhoneNumberFragment(), false)
         }
     }
 
@@ -67,7 +67,11 @@ class MainActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (ContextCompat.checkSelfPermission(APP_ACTIVITY, READ_CONTACTS)==PackageManager.PERMISSION_GRANTED){
+        if (ContextCompat.checkSelfPermission(
+                APP_ACTIVITY,
+                READ_CONTACTS
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
             initContacts()
         }
     }

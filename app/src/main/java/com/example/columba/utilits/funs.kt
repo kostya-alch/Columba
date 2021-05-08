@@ -5,9 +5,10 @@ import android.provider.ContactsContract
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.columba.MainActivity
 import com.example.columba.R
+import com.example.columba.database.updatePhonesToDatabase
 import com.example.columba.models.CommonModel
 import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
@@ -15,29 +16,31 @@ import java.util.*
 
 // Extension functions
 /* File for storing utility functions available throughout the application */
-fun showToast(message:String) {
+fun showToast(message: String) {
     /* The function shows the message */
     Toast.makeText(APP_ACTIVITY, message, Toast.LENGTH_SHORT).show()
 }
 
-fun AppCompatActivity.replaceActivity(activity: AppCompatActivity) {
+fun restartActivity() {
     /* Extension function for AppCompatActivity, allows you to run activiti */
-    val intent = Intent(this, activity::class.java)
-    startActivity(intent)
-    this.finish()
+    val intent = Intent(APP_ACTIVITY, MainActivity::class.java)
+    APP_ACTIVITY.startActivity(intent)
+    APP_ACTIVITY.finish()
 }
 
-fun AppCompatActivity.replaceFragment(fragment: Fragment, addStack: Boolean = true ) {
+fun replaceFragment(fragment: Fragment, addStack: Boolean = true) {
     /* Extension function for AppCompatActivity, allows you to install fragments */
-    if(addStack) {
-        supportFragmentManager.beginTransaction()
+    if (addStack) {
+        APP_ACTIVITY.supportFragmentManager.beginTransaction()
             .addToBackStack(null)
-            .replace(R.id.data_container,
+            .replace(
+                R.id.data_container,
                 fragment
             ).commit()
     } else {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.data_container,
+        APP_ACTIVITY.supportFragmentManager.beginTransaction()
+            .replace(
+                R.id.data_container,
                 fragment
             ).commit()
     }
@@ -45,24 +48,16 @@ fun AppCompatActivity.replaceFragment(fragment: Fragment, addStack: Boolean = tr
 }
 
 
-fun Fragment.replaceFragment(fragment: Fragment) {
-    // fragment extension function, allows you to install fragments
-    this.fragmentManager?.beginTransaction()
-        ?.addToBackStack(null)
-        ?.replace(R.id.data_container,
-            fragment
-        )?.commit()
-}
-
-fun hideKeyboard(){
+fun hideKeyboard() {
     // the function hides the keyboard
-    val imm: InputMethodManager = APP_ACTIVITY.getSystemService(android.content.Context.INPUT_METHOD_SERVICE)
-            as InputMethodManager
-    imm.hideSoftInputFromWindow(APP_ACTIVITY.window.decorView.windowToken,0)
+    val imm: InputMethodManager =
+        APP_ACTIVITY.getSystemService(android.content.Context.INPUT_METHOD_SERVICE)
+                as InputMethodManager
+    imm.hideSoftInputFromWindow(APP_ACTIVITY.window.decorView.windowToken, 0)
 
 }
 
-fun ImageView.downloadAndSetImage(url:String){
+fun ImageView.downloadAndSetImage(url: String) {
     // ImageView extension function, downloads and installs the image
     Picasso.get()
         .load(url)
@@ -101,7 +96,7 @@ fun initContacts() {
     }
 }
 
- fun String.asTime(): String {
+fun String.asTime(): String {
     val time = Date(this.toLong())
     val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
     return timeFormat.format(time)

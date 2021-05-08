@@ -8,7 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.columba.R
 import com.example.columba.models.CommonModel
-import com.example.columba.utilits.CURRENT_UID
+import com.example.columba.database.CURRENT_UID
 import com.example.columba.utilits.asTime
 import kotlinx.android.synthetic.main.message_item.view.*
 

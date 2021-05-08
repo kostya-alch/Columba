@@ -4,13 +4,11 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.view.View
 import android.widget.ImageView
-import androidx.appcompat.widget.Toolbar
-import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 
 import com.example.columba.R
 import com.example.columba.utilits.APP_ACTIVITY
-import com.example.columba.utilits.USER
+import com.example.columba.database.USER
 import com.example.columba.utilits.downloadAndSetImage
 import com.example.columba.utilits.replaceFragment
 import com.mikepenz.materialdrawer.AccountHeader
@@ -127,8 +125,8 @@ class AppDrawer () {
 
     private fun clickToItem(position: Int) {
         when(position) {
-            6 -> APP_ACTIVITY.replaceFragment(SettingsFragment())
-            3 -> APP_ACTIVITY.replaceFragment(ContactsFragment())
+            6 -> replaceFragment(SettingsFragment())
+            3 -> replaceFragment(ContactsFragment())
 
         }
     }
