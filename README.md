@@ -3,11 +3,13 @@ Android messenger on Kotlin
 Rus: 
 Мобильный мессенджер Columba предназначен для общения людьми между собой. Разработка ведётся лишь одним человеком - поэтому она неспешна, как штиль в море. 
 Инструкция по запуску: 
-1. Скачать и установить Android Studio. В будущем обязательно будет создан .apk файл, который можно будет запускать. 
+1. Скачать и установить Android Studio. 
 2. Клонировать репозиторий.
 3. Зарегистрироваться в Firebase и скачать файл google-services.json.
 4. Вставить файл google-services.json в папке с проектом app/
 5. Запустить приложение. 
+6. Если хотите пользоваться мессенджером - пишите автору приложения за аккаунтами, динамической регистрации по номерам пока нет. 
+7. Скомпилить приложение и создать .apk файл если надо. Только автора указывайте.
 
 Eng: 
 Columba mobile messenger is designed for people to communicate with each other. The development is carried out by only one person - so it is slow, like a calm in the sea.
