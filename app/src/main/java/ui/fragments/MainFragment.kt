@@ -9,7 +9,6 @@ import com.example.columba.utilits.hideKeyboard
 class MainFragment : Fragment(R.layout.fragment_chats) {
 
 
-
     override fun onResume() {  // fragment lifecycle
         super.onResume()
         APP_ACTIVITY.title = "Columba"

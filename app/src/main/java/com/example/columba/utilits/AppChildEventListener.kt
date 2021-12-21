@@ -6,9 +6,9 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 
-class AppChildEventListener(val onSuccess:(DataSnapshot) -> Unit) :ChildEventListener {
+class AppChildEventListener(val onSuccess: (DataSnapshot) -> Unit) : ChildEventListener {
     override fun onCancelled(p0: DatabaseError) {
-       // TODO("Not yet implemented")
+        // TODO("Not yet implemented")
     }
 
     override fun onChildMoved(p0: DataSnapshot, previousChildName: String?) {
@@ -16,7 +16,7 @@ class AppChildEventListener(val onSuccess:(DataSnapshot) -> Unit) :ChildEventLis
     }
 
     override fun onChildChanged(p0: DataSnapshot, previousChildName: String?) {
-       // TODO("Not yet implemented")
+        // TODO("Not yet implemented")
     }
 
     override fun onChildAdded(p0: DataSnapshot, previousChildName: String?) {

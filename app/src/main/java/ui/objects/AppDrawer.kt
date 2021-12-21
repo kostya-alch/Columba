@@ -26,26 +26,26 @@ import ui.fragments.SettingsFragment
 
 // this class controls the entire navigation menu.
 /* Обьект реализующий боковое меню Navigation Drawer */
-class AppDrawer () {
+class AppDrawer() {
     private lateinit var mDrawer: Drawer
     private lateinit var mHeader: AccountHeader
-    private lateinit var mDrawerLayout:DrawerLayout
-    private lateinit var mCurrentProfile:ProfileDrawerItem
+    private lateinit var mDrawerLayout: DrawerLayout
+    private lateinit var mCurrentProfile: ProfileDrawerItem
 
     fun create() {
         /* Создания бокового меню */
-       initLoader()
+        initLoader()
         createHeader()
         createDrawer()
-        mDrawerLayout  = mDrawer.drawerLayout
+        mDrawerLayout = mDrawer.drawerLayout
     }
 
     fun disabledDrawer() { // blocking menu burger if we are go to in settings
         /* Отключение выдвигающего меню */
-    mDrawer.actionBarDrawerToggle?.isDrawerIndicatorEnabled = false
+        mDrawer.actionBarDrawerToggle?.isDrawerIndicatorEnabled = false
         APP_ACTIVITY.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-        APP_ACTIVITY.mToolbar.setNavigationOnClickListener{
+        APP_ACTIVITY.mToolbar.setNavigationOnClickListener {
             APP_ACTIVITY.supportFragmentManager.popBackStack()
         }
     }
@@ -56,11 +56,12 @@ class AppDrawer () {
         APP_ACTIVITY.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         mDrawer.actionBarDrawerToggle?.isDrawerIndicatorEnabled = true
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
-        APP_ACTIVITY.mToolbar.setNavigationOnClickListener{
+        APP_ACTIVITY.mToolbar.setNavigationOnClickListener {
             mDrawer.openDrawer()
         }
 
     }
+
     private fun createDrawer() { // menu-burger
         mDrawer = DrawerBuilder()
             .withActivity(APP_ACTIVITY)
@@ -84,7 +85,7 @@ class AppDrawer () {
                     .withName("Контакты")
                     .withSelectable(false)
                     .withIcon(R.drawable.contacts__1_),
-                  PrimaryDrawerItem().withIdentifier(103)
+                PrimaryDrawerItem().withIdentifier(103)
                     .withIconTintingEnabled(true)
                     .withName("Звонки")
                     .withSelectable(false)
@@ -110,13 +111,13 @@ class AppDrawer () {
                     .withName("Вопросы о Columba")
                     .withSelectable(false)
                     .withIcon(R.drawable.help)
-            ).withOnDrawerItemClickListener(object :Drawer.OnDrawerItemClickListener{
+            ).withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
                 override fun onItemClick(
                     view: View?,
                     position: Int,
                     drawerItem: IDrawerItem<*>
                 ): Boolean {
-                        clickToItem(position)
+                    clickToItem(position)
                     return false
                 }
 
@@ -124,12 +125,13 @@ class AppDrawer () {
     }
 
     private fun clickToItem(position: Int) {
-        when(position) {
+        when (position) {
             6 -> replaceFragment(SettingsFragment())
             3 -> replaceFragment(ContactsFragment())
 
         }
     }
+
     private fun createHeader() {
         /* Создание хедера*/
         mCurrentProfile = ProfileDrawerItem()
@@ -145,7 +147,7 @@ class AppDrawer () {
             ).build()
     }
 
-    fun updateHeader(){
+    fun updateHeader() {
         /* Обновления хедера */
         mCurrentProfile
             .withName(USER.fullname)
@@ -156,9 +158,9 @@ class AppDrawer () {
 
     }
 
-    private fun initLoader(){
+    private fun initLoader() {
         /* Инициализация лоадера для загрузки картинок в хедер */
-        DrawerImageLoader.init(object :AbstractDrawerImageLoader(){
+        DrawerImageLoader.init(object : AbstractDrawerImageLoader() {
             override fun set(imageView: ImageView, uri: Uri, placeholder: Drawable) {
                 imageView.downloadAndSetImage(uri.toString())
             }

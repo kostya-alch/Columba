@@ -24,8 +24,8 @@ class ContactsFragment : BaseFragment(R.layout.fragment_contacts) {
     private lateinit var mAdapter: FirebaseRecyclerAdapter<CommonModel, ContactsHolder>
     private lateinit var mRefContacts: DatabaseReference
     private lateinit var mRefUsers: DatabaseReference
-    private lateinit var mRefUsersListener:AppValueEventListener
-    private  var mapListeners = hashMapOf<DatabaseReference,AppValueEventListener>()
+    private lateinit var mRefUsersListener: AppValueEventListener
+    private var mapListeners = hashMapOf<DatabaseReference, AppValueEventListener>()
 
     override fun onResume() {
         super.onResume()
@@ -66,17 +66,19 @@ class ContactsFragment : BaseFragment(R.layout.fragment_contacts) {
 
                 mRefUsersListener = AppValueEventListener {
                     val contact = it.getCommonModel()
-                    if (contact.fullname.isEmpty()){
+                    if (contact.fullname.isEmpty()) {
                         holder.name.text = model.fullname
-                    }else holder.name.text = contact.fullname
+                    } else holder.name.text = contact.fullname
 
                     holder.status.text = contact.state
                     holder.photo.downloadAndSetImage(contact.photoUrl)
-                    holder.itemView.setOnClickListener { replaceFragment(
-                        SingleChatFragment(
-                            model
+                    holder.itemView.setOnClickListener {
+                        replaceFragment(
+                            SingleChatFragment(
+                                model
+                            )
                         )
-                    ) }
+                    }
                 }
 
                 mRefUsers.addValueEventListener(mRefUsersListener)

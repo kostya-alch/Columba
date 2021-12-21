@@ -3,9 +3,9 @@ package com.example.columba.utilits
 import android.text.Editable
 import android.text.TextWatcher
 
-class AppTextWatcher(val onSuccess:(Editable?)-> Unit ) : TextWatcher {
+class AppTextWatcher(val onSuccess: (Editable?) -> Unit) : TextWatcher {
     override fun afterTextChanged(s: Editable?) {
-    onSuccess(s)
+        onSuccess(s)
     }
 
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}

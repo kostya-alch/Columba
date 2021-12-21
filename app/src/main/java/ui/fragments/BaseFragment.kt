@@ -10,9 +10,9 @@ import com.example.columba.MainActivity
 import com.example.columba.R
 import com.example.columba.databinding.FragmentChatsBinding
 import com.example.columba.utilits.APP_ACTIVITY
-/* Базовый фрагмент, от него наследуются все фрагменты приложения, кроме главного */
-open class BaseFragment( layout:Int) : Fragment (layout) {
 
+/* Базовый фрагмент, от него наследуются все фрагменты приложения, кроме главного */
+open class BaseFragment(layout: Int) : Fragment(layout) {
 
 
     override fun onStart() {

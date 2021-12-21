@@ -13,13 +13,13 @@ import java.util.concurrent.TimeUnit
 /* Фрагмент для ввода номера телефона при регистрации */
 class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) {
 
-    private lateinit var mPhoneNumber:String
-    private lateinit var mCallback:PhoneAuthProvider.OnVerificationStateChangedCallbacks
+    private lateinit var mPhoneNumber: String
+    private lateinit var mCallback: PhoneAuthProvider.OnVerificationStateChangedCallbacks
 
     override fun onStart() {
         super.onStart()
 /* Callback который возвращает результат верификации */
-        mCallback = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
+        mCallback = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) { // method   verification check
                 /* Функция срабатывает если верификация уже была произведена,
                 * пользователь авторизируется в приложении без потверждения по смс */
@@ -62,9 +62,9 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
 
     private fun authUser() {
         /* Инициализация */
-    mPhoneNumber = register_input_phone_number.text.toString()
+        mPhoneNumber = register_input_phone_number.text.toString()
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
-        mPhoneNumber,
+            mPhoneNumber,
             60,
             TimeUnit.SECONDS,
             APP_ACTIVITY,
