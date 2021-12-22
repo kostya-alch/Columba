@@ -36,19 +36,26 @@ class EnterCodeFragment(val mPhoneNumber: String, val id: String) :
                 dateMap[CHILD_PHONE] = mPhoneNumber
                 dateMap[CHILD_USERNAME] = uid
 
-                REF_DATABASE_ROOT.child(
-                    NODE_PHONES
-                ).child(mPhoneNumber).setValue(uid)
-                    .addOnFailureListener { showToast(it.message.toString()) }
-                    .addOnSuccessListener { }
-                REF_DATABASE_ROOT.child(
-                    NODE_USERS
-                ).child(uid).updateChildren(dateMap)
-                    .addOnSuccessListener {
-                        showToast("Добро пожаловать ")
-                        restartActivity()
-                    }
-                    .addOnFailureListener { showToast(it.message.toString()) }
+                REF_DATABASE_ROOT.child(NODE_USERS).child(uid)
+                    .addListenerForSingleValueEvent(AppValueEventListener {
+                        if (!it.hasChild(CHILD_USERNAME)) {
+                            dateMap[CHILD_USERNAME] = uid
+                        }
+                        REF_DATABASE_ROOT.child(
+                            NODE_PHONES
+                        ).child(mPhoneNumber).setValue(uid)
+                            .addOnFailureListener { showToast(it.message.toString()) }
+                            .addOnSuccessListener { }
+                        REF_DATABASE_ROOT.child(
+                            NODE_USERS
+                        ).child(uid).updateChildren(dateMap)
+                            .addOnSuccessListener {
+                                showToast("Добро пожаловать ")
+                                restartActivity()
+                            }
+                            .addOnFailureListener { showToast(it.message.toString()) }
+
+                    })
 
 
             } else showToast(task.exception?.message.toString())
