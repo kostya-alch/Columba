@@ -6,14 +6,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.columba.R
-import com.example.columba.models.CommonModel
 import com.example.columba.database.CURRENT_UID
-import com.example.columba.utilits.*
+import com.example.columba.models.CommonModel
+import com.example.columba.utilits.TYPE_MESSAGE_IMAGE
+import com.example.columba.utilits.TYPE_MESSAGE_TEXT
+import com.example.columba.utilits.asTime
+import com.example.columba.utilits.downloadAndSetImage
 import kotlinx.android.synthetic.main.message_item.view.*
-import org.w3c.dom.Text
 
 class SingleChatAdapter : RecyclerView.Adapter<SingleChatAdapter.SingleChatHolder>() {
 
@@ -61,13 +62,13 @@ class SingleChatAdapter : RecyclerView.Adapter<SingleChatAdapter.SingleChatHolde
         if (mListMessagesCache[position].from == CURRENT_UID) {
             holder.blocReceivedImageMessage.visibility = View.GONE
             holder.blocUserImageMessage.visibility = View.VISIBLE
-            holder.chatUserImage.downloadAndSetImage(mListMessagesCache[position].imageUrl)
+            holder.chatUserImage.downloadAndSetImage(mListMessagesCache[position].fileUrl)
             holder.chatUserMessageTime.text =
                 mListMessagesCache[position].timeStamp.toString().asTime()
         } else {
             holder.blocReceivedImageMessage.visibility = View.VISIBLE
             holder.blocUserImageMessage.visibility = View.GONE
-            holder.chatReceivedImage.downloadAndSetImage(mListMessagesCache[position].imageUrl)
+            holder.chatReceivedImage.downloadAndSetImage(mListMessagesCache[position].fileUrl)
             holder.chatReceivedMessageTime.text =
                 mListMessagesCache[position].timeStamp.toString().asTime()
         }

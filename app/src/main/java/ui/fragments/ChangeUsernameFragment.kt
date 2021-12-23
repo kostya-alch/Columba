@@ -2,7 +2,8 @@ package ui.fragments
 
 import com.example.columba.R
 import com.example.columba.database.*
-import com.example.columba.utilits.*
+import com.example.columba.utilits.AppValueEventListener
+import com.example.columba.utilits.showToast
 import kotlinx.android.synthetic.main.fragment_change_username.*
 import java.util.*
 

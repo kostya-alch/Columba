@@ -5,10 +5,9 @@ import android.net.Uri
 import android.view.View
 import android.widget.ImageView
 import androidx.drawerlayout.widget.DrawerLayout
-
 import com.example.columba.R
-import com.example.columba.utilits.APP_ACTIVITY
 import com.example.columba.database.USER
+import com.example.columba.utilits.APP_ACTIVITY
 import com.example.columba.utilits.downloadAndSetImage
 import com.example.columba.utilits.replaceFragment
 import com.mikepenz.materialdrawer.AccountHeader

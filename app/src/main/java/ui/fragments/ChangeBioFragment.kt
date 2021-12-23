@@ -1,8 +1,8 @@
 package ui.fragments
 
 import com.example.columba.R
-import com.example.columba.database.*
-import com.example.columba.utilits.*
+import com.example.columba.database.USER
+import com.example.columba.database.setBioToDatabase
 import kotlinx.android.synthetic.main.fragment_change_bio.*
 
 /* Фрагмент для изменения информации о пользователе */

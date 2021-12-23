@@ -1,13 +1,12 @@
 package ui.fragments
 
-import android.os.Bundle
-import android.view.*
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.example.columba.MainActivity
 import com.example.columba.R
-import com.example.columba.utilits.APP_ACTIVITY
 import com.example.columba.utilits.hideKeyboard
-import com.mikepenz.materialize.util.KeyboardUtil.hideKeyboard as hideKeyboard
 
 /* Базовый фрагмент, от него наследуются фрагменты где происходит изменение данных о пользователе. */
 open class BaseChangeFragment(layout: Int) : Fragment(layout) {

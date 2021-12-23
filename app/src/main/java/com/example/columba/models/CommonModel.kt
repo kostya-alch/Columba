@@ -1,6 +1,7 @@
 package com.example.columba.models
 
-/* Model User*/
+/* Общая модель для всех сущностей приложения*/
+
 data class CommonModel(
     val id: String = "",
     var username: String = "",
@@ -14,9 +15,7 @@ data class CommonModel(
     var type: String = "",
     var from: String = "",
     var timeStamp: Any = "",
-    var imageUrl: String = "empty"
-
-
+    var fileUrl: String = "empty"
 ) {
     override fun equals(other: Any?): Boolean {
         return (other as CommonModel).id == id

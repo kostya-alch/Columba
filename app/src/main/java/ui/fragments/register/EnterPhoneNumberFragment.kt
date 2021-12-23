@@ -3,7 +3,10 @@ package ui.fragments.register
 import androidx.fragment.app.Fragment
 import com.example.columba.R
 import com.example.columba.database.AUTH
-import com.example.columba.utilits.*
+import com.example.columba.utilits.APP_ACTIVITY
+import com.example.columba.utilits.replaceFragment
+import com.example.columba.utilits.restartActivity
+import com.example.columba.utilits.showToast
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
