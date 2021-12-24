@@ -13,9 +13,11 @@ interface MessageView {
             get() = 0
         val MESSAGE_TEXT: Int
             get() = 1
+        val MESSAGE_VOICE: Int
+            get() = 2
     }
 
-    fun getTypeView():Int
+    fun getTypeView(): Int
 
 
 }

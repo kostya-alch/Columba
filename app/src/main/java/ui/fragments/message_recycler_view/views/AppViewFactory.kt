@@ -2,6 +2,7 @@ package ui.fragments.message_recycler_view.views
 
 import com.example.columba.models.CommonModel
 import com.example.columba.utilits.TYPE_MESSAGE_IMAGE
+import com.example.columba.utilits.TYPE_MESSAGE_VOICE
 
 class AppViewFactory {
     companion object {
@@ -13,7 +14,14 @@ class AppViewFactory {
                     message.timeStamp.toString(),
                     message.fileUrl
                 )
-                else -> ViewTextMessage(
+                TYPE_MESSAGE_VOICE -> ViewVoiceMessage(
+                    message.id,
+                    message.from,
+                    message.timeStamp.toString(),
+                    message.fileUrl
+                )
+                else
+                -> ViewTextMessage(
                     message.id,
                     message.from,
                     message.timeStamp.toString(),
