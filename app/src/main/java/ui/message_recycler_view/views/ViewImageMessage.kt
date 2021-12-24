@@ -1,4 +1,4 @@
-package ui.fragments.message_recycler_view.views
+package ui.message_recycler_view.views
 
 data class ViewImageMessage(
     override val id: String,

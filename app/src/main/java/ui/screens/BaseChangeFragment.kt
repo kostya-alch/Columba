@@ -1,4 +1,4 @@
-package ui.fragments
+package ui.screens
 
 import android.view.Menu
 import android.view.MenuInflater

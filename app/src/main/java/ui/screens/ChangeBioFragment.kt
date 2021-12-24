@@ -1,4 +1,4 @@
-package ui.fragments
+package ui.screens
 
 import com.example.columba.R
 import com.example.columba.database.USER

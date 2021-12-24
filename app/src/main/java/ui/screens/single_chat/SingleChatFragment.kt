@@ -1,4 +1,4 @@
-package ui.fragments.single_chat
+package ui.screens.single_chat
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -24,8 +24,8 @@ import kotlinx.android.synthetic.main.toolbar_info.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import ui.fragments.BaseFragment
-import ui.fragments.message_recycler_view.views.AppViewFactory
+import ui.screens.BaseFragment
+import ui.message_recycler_view.views.AppViewFactory
 
 
 class SingleChatFragment(private val contact: CommonModel) :
@@ -235,5 +235,6 @@ class SingleChatFragment(private val contact: CommonModel) :
     override fun onDestroyView() {
         super.onDestroyView()
         mAppVoiceRecorder.releaseRecorder()
+        mAdapter.onDestroy()
     }
 }

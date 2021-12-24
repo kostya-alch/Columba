@@ -1,4 +1,4 @@
-package ui.fragments.message_recycler_view.views
+package ui.message_recycler_view.views
 
 import com.example.columba.models.CommonModel
 import com.example.columba.utilits.TYPE_MESSAGE_IMAGE

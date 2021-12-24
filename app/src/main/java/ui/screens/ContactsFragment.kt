@@ -1,4 +1,4 @@
-package ui.fragments
+package ui.screens
 
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +18,7 @@ import com.google.firebase.database.DatabaseReference
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.contact_item.view.*
 import kotlinx.android.synthetic.main.fragment_contacts.*
-import ui.fragments.single_chat.SingleChatFragment
+import ui.screens.single_chat.SingleChatFragment
 
 
 class ContactsFragment : BaseFragment(R.layout.fragment_contacts) {

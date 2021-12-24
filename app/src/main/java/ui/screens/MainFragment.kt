@@ -1,4 +1,4 @@
-package ui.fragments
+package ui.screens
 
 import androidx.fragment.app.Fragment
 import com.example.columba.R

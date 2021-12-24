@@ -10,8 +10,8 @@ import com.example.columba.database.initFirebase
 import com.example.columba.database.initUser
 import com.example.columba.databinding.ActivityMainBinding
 import com.example.columba.utilits.*
-import ui.fragments.MainFragment
-import ui.fragments.register.EnterPhoneNumberFragment
+import ui.screens.MainFragment
+import ui.screens.register.EnterPhoneNumberFragment
 import ui.objects.AppDrawer
 
 class MainActivity : AppCompatActivity() {
