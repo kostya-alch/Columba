@@ -10,7 +10,7 @@ import com.example.columba.database.initFirebase
 import com.example.columba.database.initUser
 import com.example.columba.databinding.ActivityMainBinding
 import com.example.columba.utilits.*
-import ui.screens.MainFragment
+import ui.screens.main_list.MainListFragment
 import ui.screens.register.EnterPhoneNumberFragment
 import ui.objects.AppDrawer
 
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(mToolbar)
         if (AUTH.currentUser != null) { //checking for user authorization
             mAppDrawer.create()
-            replaceFragment(MainFragment(), false)
+            replaceFragment(MainListFragment(), false)
         } else { // run register procedure
             replaceFragment(EnterPhoneNumberFragment(), false)
         }
