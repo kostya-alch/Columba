@@ -1,7 +1,6 @@
 package ui.screens.single_chat
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.view.MotionEvent
@@ -242,12 +241,14 @@ class SingleChatFragment(private val contact: CommonModel) :
                 PICK_FILE_REQUEST_CODE -> {
                     val uri = data.data
                     val messageKey = getMessageKey(contact.id)
-                    uri?.let { uploadFileToStorage(it, messageKey, contact.id, TYPE_MESSAGE_FILE) }
+                    val filename = getFileNameFromUri(uri!!)
+                    uploadFileToStorage(uri, messageKey, contact.id, TYPE_MESSAGE_FILE, filename)
                     mSmoothScrollToPosition = true
                 }
             }
         }
     }
+
 
 
     override fun onPause() {

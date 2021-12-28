@@ -1,7 +1,9 @@
 package com.example.columba.utilits
 
 import android.content.Intent
+import android.net.Uri
 import android.provider.ContactsContract
+import android.provider.OpenableColumns
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.Toast
@@ -69,7 +71,7 @@ fun ImageView.downloadAndSetImage(url: String) {
 fun initContacts() {
     if (checkPermissions(READ_CONTACTS)) {
         /* The function reads contacts from the phone book, fills the arrayContacts array with CommonModel models */
-        var arrayContacts = arrayListOf<CommonModel>()
+        val arrayContacts = arrayListOf<CommonModel>()
         val cursor = APP_ACTIVITY.contentResolver.query(
             ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
             null,
@@ -100,4 +102,19 @@ fun String.asTime(): String {
     val time = Date(this.toLong())
     val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
     return timeFormat.format(time)
+}
+
+fun getFileNameFromUri(uri: Uri): String {
+    var result = ""
+    val cursor = APP_ACTIVITY.contentResolver.query(uri, null, null, null, null)
+    try {
+        if (cursor != null && cursor.moveToFirst()) {
+            result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME))
+        }
+    } catch (e: Exception) {
+        showToast(e.message.toString())
+    } finally {
+        cursor?.close()
+        return result
+    }
 }
