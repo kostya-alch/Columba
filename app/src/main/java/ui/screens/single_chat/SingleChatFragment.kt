@@ -3,8 +3,7 @@ package ui.screens.single_chat
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
-import android.view.MotionEvent
-import android.view.View
+import android.view.*
 import android.widget.AbsListView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,6 +26,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import ui.screens.BaseFragment
 import ui.message_recycler_view.views.AppViewFactory
+import ui.screens.settings.ChangeNameFragment
 
 
 class SingleChatFragment(private val contact: CommonModel) :
@@ -57,6 +57,7 @@ class SingleChatFragment(private val contact: CommonModel) :
 
     @SuppressLint("ClickableViewAccessibility")
     private fun initFields() {
+        setHasOptionsMenu(true)
         mBottomBehavior = BottomSheetBehavior.from(bottom_sheet_choice)
         mBottomBehavior.state = BottomSheetBehavior.STATE_HIDDEN
         mAppVoiceRecorder = AppVoiceRecorder()
@@ -265,4 +266,19 @@ class SingleChatFragment(private val contact: CommonModel) :
         mAppVoiceRecorder.releaseRecorder()
         mAdapter.onDestroy()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        /* Создания выпадающего меню*/
+        activity?.menuInflater?.inflate(R.menu.single_chat_action_menu, menu)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        /* Слушатель выбора пунктов выпадающего меню */
+        when (item.itemId) {
+
+        }
+        return true
+    }
 }
+

@@ -1,4 +1,4 @@
-package ui.screens
+package ui.screens.settings
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -11,6 +11,7 @@ import com.example.columba.utilits.*
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.fragment_settings.*
+import ui.screens.BaseFragment
 
 /* Фрагмент настроек */
 class SettingsFragment : BaseFragment(R.layout.fragment_settings) {

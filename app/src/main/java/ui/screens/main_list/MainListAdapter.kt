@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.columba.R
 import com.example.columba.models.CommonModel
 import com.example.columba.utilits.downloadAndSetImage
+import com.example.columba.utilits.replaceFragment
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.main_list_item.view.*
+import ui.screens.single_chat.SingleChatFragment
 
 class MainListAdapter : RecyclerView.Adapter<MainListAdapter.MainListHolder>() {
 
@@ -24,7 +26,12 @@ class MainListAdapter : RecyclerView.Adapter<MainListAdapter.MainListHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainListHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.main_list_item, parent, false)
-        return MainListHolder(view)
+
+        val holder = MainListHolder(view)
+        holder.itemView.setOnClickListener {
+            replaceFragment(SingleChatFragment(listItems[holder.bindingAdapterPosition]))
+        }
+        return holder
     }
 
     override fun getItemCount(): Int = listItems.size

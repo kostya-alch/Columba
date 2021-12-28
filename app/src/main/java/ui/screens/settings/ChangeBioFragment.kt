@@ -1,9 +1,10 @@
-package ui.screens
+package ui.screens.settings
 
 import com.example.columba.R
 import com.example.columba.database.USER
 import com.example.columba.database.setBioToDatabase
 import kotlinx.android.synthetic.main.fragment_change_bio.*
+import ui.screens.BaseChangeFragment
 
 /* Фрагмент для изменения информации о пользователе */
 class ChangeBioFragment : BaseChangeFragment(R.layout.fragment_change_bio) {

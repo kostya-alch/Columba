@@ -21,7 +21,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader
 import com.mikepenz.materialdrawer.util.DrawerImageLoader
 import ui.screens.ContactsFragment
-import ui.screens.SettingsFragment
+import ui.screens.settings.SettingsFragment
 
 // this class controls the entire navigation menu.
 /* Обьект реализующий боковое меню Navigation Drawer */
