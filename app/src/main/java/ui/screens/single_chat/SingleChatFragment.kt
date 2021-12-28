@@ -26,6 +26,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import ui.screens.BaseFragment
 import ui.message_recycler_view.views.AppViewFactory
+import ui.screens.main_list.MainListFragment
 import ui.screens.settings.ChangeNameFragment
 
 
@@ -220,7 +221,6 @@ class SingleChatFragment(private val contact: CommonModel) :
     }
 
 
-
     private fun initInfoToolbar() {
         if (mReceivingUser.fullname.isEmpty()) {
             mToolbarInfo.toolbar_chat_fullname.text = contact.fullname
@@ -253,7 +253,6 @@ class SingleChatFragment(private val contact: CommonModel) :
     }
 
 
-
     override fun onPause() {
         super.onPause()
         mToolbarInfo.visibility = View.GONE
@@ -276,9 +275,18 @@ class SingleChatFragment(private val contact: CommonModel) :
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         /* Слушатель выбора пунктов выпадающего меню */
         when (item.itemId) {
-
+            R.id.menu_clear_chat -> clearChat(contact.id) {
+                showToast("Чат очищен")
+                replaceFragment(MainListFragment())
+            }
+            R.id.menu_delete_chat -> deleteChat(contact.id) {
+                showToast("Чат удалён")
+                replaceFragment(MainListFragment())
+            }
         }
         return true
     }
+
+
 }
 
