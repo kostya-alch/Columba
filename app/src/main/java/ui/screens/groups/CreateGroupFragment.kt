@@ -33,6 +33,7 @@ class CreateGroupFragment(private var listContacts: List<CommonModel>) :
             } else {
                 createGroupToDatabase(nameGroup,mUri,listContacts){
                     replaceFragment(MainListFragment())
+
                 }
             }
         }
