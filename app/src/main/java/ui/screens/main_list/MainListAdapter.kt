@@ -7,10 +7,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.columba.R
 import com.example.columba.models.CommonModel
+import com.example.columba.utilits.TYPE_CHAT
+import com.example.columba.utilits.TYPE_GROUP
 import com.example.columba.utilits.downloadAndSetImage
 import com.example.columba.utilits.replaceFragment
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.main_list_item.view.*
+import ui.screens.groups.GroupChatFragment
 import ui.screens.single_chat.SingleChatFragment
 
 class MainListAdapter : RecyclerView.Adapter<MainListAdapter.MainListHolder>() {
@@ -29,7 +32,10 @@ class MainListAdapter : RecyclerView.Adapter<MainListAdapter.MainListHolder>() {
 
         val holder = MainListHolder(view)
         holder.itemView.setOnClickListener {
-            replaceFragment(SingleChatFragment(listItems[holder.bindingAdapterPosition]))
+            when (listItems[holder.bindingAdapterPosition].type) {
+                TYPE_CHAT -> replaceFragment(SingleChatFragment(listItems[holder.bindingAdapterPosition]))
+                TYPE_GROUP -> replaceFragment(GroupChatFragment(listItems[holder.bindingAdapterPosition]))
+            }
         }
         return holder
     }
