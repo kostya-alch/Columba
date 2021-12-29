@@ -8,6 +8,7 @@ import com.example.columba.models.CommonModel
 import com.example.columba.utilits.APP_ACTIVITY
 import com.example.columba.utilits.AppValueEventListener
 import com.example.columba.utilits.hideKeyboard
+import com.example.columba.utilits.replaceFragment
 import kotlinx.android.synthetic.main.fragment_add_contacts.*
 import kotlinx.android.synthetic.main.fragment_main_list.*
 
@@ -28,9 +29,7 @@ class AddContactsFragment : Fragment(R.layout.fragment_add_contacts) {
         hideKeyboard()
         initRecycleView()
         add_contacts_btn_next.setOnClickListener {
-            listContacts.forEach {
-                println(it.id)
-            }
+            replaceFragment(CreateGroupFragment(listContacts))
         }
     }
 
