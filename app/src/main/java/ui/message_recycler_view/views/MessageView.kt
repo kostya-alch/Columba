@@ -20,6 +20,4 @@ interface MessageView {
     }
 
     fun getTypeView(): Int
-
-
 }

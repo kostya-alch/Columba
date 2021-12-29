@@ -43,11 +43,10 @@ class ChangeUsernameFragment : BaseChangeFragment(R.layout.fragment_change_usern
         REF_DATABASE_ROOT.child(NODE_USERNAMES).child(mNewUsername).setValue(
             CURRENT_UID
         ).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    updateCurrentUsername(mNewUsername)
-                }
+            if (it.isSuccessful) {
+                updateCurrentUsername(mNewUsername)
             }
+        }
     }
-
 
 }

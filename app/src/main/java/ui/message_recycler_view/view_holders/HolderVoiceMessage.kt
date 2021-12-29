@@ -88,7 +88,7 @@ class HolderVoiceMessage(view: View) : RecyclerView.ViewHolder(view), MessageHol
         }
     }
 
-    fun stop(function: () -> Unit) {
+    private fun stop(function: () -> Unit) {
         mAppVoicePlayer.stop {
             function()
         }

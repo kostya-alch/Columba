@@ -24,7 +24,7 @@ fun showToast(message: String) {
 }
 
 fun restartActivity() {
-    /* Extension function for AppCompatActivity, allows you to run activiti */
+    /* Extension function for AppCompatActivity, allows you to run activity */
     val intent = Intent(APP_ACTIVITY, MainActivity::class.java)
     APP_ACTIVITY.startActivity(intent)
     APP_ACTIVITY.finish()
@@ -119,6 +119,6 @@ fun getFileNameFromUri(uri: Uri): String {
     }
 }
 
-fun getPlulars(count: Int) = APP_ACTIVITY.resources.getQuantityString(
+fun getPlurals(count: Int) = APP_ACTIVITY.resources.getQuantityString(
     R.plurals.count_members, count, count
 )

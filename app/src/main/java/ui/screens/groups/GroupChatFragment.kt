@@ -24,8 +24,8 @@ import kotlinx.android.synthetic.main.toolbar_info.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import ui.screens.base.BaseFragment
 import ui.message_recycler_view.views.AppViewFactory
+import ui.screens.base.BaseFragment
 import ui.screens.main_list.MainListFragment
 
 

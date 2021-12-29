@@ -8,12 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.columba.R
 import com.example.columba.models.CommonModel
 import com.example.columba.utilits.downloadAndSetImage
-import com.example.columba.utilits.replaceFragment
-import com.example.columba.utilits.showToast
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.add_contacts_item.view.*
-import kotlinx.android.synthetic.main.main_list_item.view.*
-import ui.screens.single_chat.SingleChatFragment
 
 class AddContactsAdapter : RecyclerView.Adapter<AddContactsAdapter.AddContactsHolder>() {
 

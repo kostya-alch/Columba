@@ -10,11 +10,15 @@ import com.example.columba.database.initFirebase
 import com.example.columba.database.initUser
 import com.example.columba.databinding.ActivityMainBinding
 import com.example.columba.utilits.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import ui.objects.AppDrawer
 import ui.screens.main_list.MainListFragment
 import ui.screens.register.EnterPhoneNumberFragment
-import ui.objects.AppDrawer
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var mBinding: ActivityMainBinding // initializing objects
     lateinit var mToolbar: Toolbar
     lateinit var mAppDrawer: AppDrawer
@@ -26,7 +30,9 @@ class MainActivity : AppCompatActivity() {
         APP_ACTIVITY = this
         initFirebase()
         initUser {
-            initContacts()
+            CoroutineScope(Dispatchers.IO).launch {
+                initContacts()
+            }
             initFields()
             initFunc()
         }

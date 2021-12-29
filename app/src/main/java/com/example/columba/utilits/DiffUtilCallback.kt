@@ -7,6 +7,7 @@ class DiffUtilCallback(
     private val oldList: List<CommonModel>,
     private val newList: List<CommonModel>
 ) : DiffUtil.Callback() {
+
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
         oldList[oldItemPosition].timeStamp == newList[newItemPosition].timeStamp
 

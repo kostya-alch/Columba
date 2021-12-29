@@ -38,7 +38,7 @@ class CreateGroupFragment(private var listContacts: List<CommonModel>) :
             }
         }
         create_group_input.requestFocus()
-        create_group_counts.text = getPlulars(listContacts.size)
+        create_group_counts.text = getPlurals(listContacts.size)
     }
     private fun addPhoto() {
         CropImage.activity()

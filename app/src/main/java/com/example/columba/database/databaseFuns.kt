@@ -34,21 +34,21 @@ inline fun putUrlToDatabase(url: String, crossinline function: () -> Unit) {
         CURRENT_UID
     )
         .child(CHILD_PHOTO_URL).setValue(url)
-        .addOnCompleteListener { function() }
+        .addOnSuccessListener { function() }
         .addOnFailureListener { showToast(it.message.toString()) }
 }
 
 inline fun getUrlFromStorage(path: StorageReference, crossinline function: (url: String) -> Unit) {
     /* Higher-order function, gets the URL of the image from the storage */
     path.downloadUrl
-        .addOnCompleteListener { function(it.toString()) }
+        .addOnSuccessListener { function(it.toString()) }
         .addOnFailureListener { showToast(it.message.toString()) }
 }
 
 inline fun putFileToStorage(uri: Uri, path: StorageReference, crossinline function: () -> Unit) {
     /* Higher-order function, sends the image to the storage */
     path.putFile(uri)
-        .addOnCompleteListener { function() }
+        .addOnSuccessListener { function() }
         .addOnFailureListener { showToast(it.message.toString()) }
 
 }
@@ -217,7 +217,7 @@ fun setNameToDatabase(fullname: String) {
             USER.fullname = fullname
             APP_ACTIVITY.mAppDrawer.updateHeader()
             APP_ACTIVITY.supportFragmentManager.popBackStack()
-        }
+        }.addOnFailureListener { showToast(it.message.toString()) }
 }
 
 fun sendMessageAsFile(

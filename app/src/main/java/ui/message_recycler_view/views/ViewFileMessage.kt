@@ -7,6 +7,7 @@ data class ViewFileMessage(
     override val fileUrl: String,
     override val text: String = ""
 ) : MessageView {
+
     override fun getTypeView(): Int {
         return MessageView.MESSAGE_FILE
     }

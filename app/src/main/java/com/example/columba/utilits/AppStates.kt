@@ -4,6 +4,7 @@ import com.example.columba.database.*
 
 /* Класс перечисление состояний приложения*/
 enum class AppStates(val state: String) {
+
     ONLINE("В сети"),
     OFFLINE("был недавно"),
     TYPING("печатает");

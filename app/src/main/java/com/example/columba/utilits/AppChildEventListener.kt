@@ -5,6 +5,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 
 class AppChildEventListener(val onSuccess: (DataSnapshot) -> Unit) : ChildEventListener {
+
     override fun onCancelled(p0: DatabaseError) {
         // TODO("Not yet implemented")
     }

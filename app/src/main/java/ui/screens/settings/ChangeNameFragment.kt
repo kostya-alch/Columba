@@ -13,8 +13,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
 
     override fun onResume() {
         super.onResume()
-
-
+        initFullnameList()
     }
 
     private fun initFullnameList() {
