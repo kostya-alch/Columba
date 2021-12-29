@@ -5,7 +5,7 @@ import com.example.columba.database.USER
 import com.example.columba.database.setNameToDatabase
 import com.example.columba.utilits.showToast
 import kotlinx.android.synthetic.main.fragment_change_name.*
-import ui.screens.BaseChangeFragment
+import ui.screens.base.BaseChangeFragment
 
 // fragment for changing the user name
 class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {

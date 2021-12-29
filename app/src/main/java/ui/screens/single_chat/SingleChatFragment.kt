@@ -24,10 +24,9 @@ import kotlinx.android.synthetic.main.toolbar_info.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import ui.screens.BaseFragment
+import ui.screens.base.BaseFragment
 import ui.message_recycler_view.views.AppViewFactory
 import ui.screens.main_list.MainListFragment
-import ui.screens.settings.ChangeNameFragment
 
 
 class SingleChatFragment(private val contact: CommonModel) :

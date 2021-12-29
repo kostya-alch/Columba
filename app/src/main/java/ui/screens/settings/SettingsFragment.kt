@@ -11,7 +11,7 @@ import com.example.columba.utilits.*
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.fragment_settings.*
-import ui.screens.BaseFragment
+import ui.screens.base.BaseFragment
 
 /* Фрагмент настроек */
 class SettingsFragment : BaseFragment(R.layout.fragment_settings) {

@@ -1,4 +1,4 @@
-package ui.screens
+package ui.screens.base
 
 import androidx.fragment.app.Fragment
 import com.example.columba.utilits.APP_ACTIVITY

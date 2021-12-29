@@ -20,7 +20,8 @@ import com.mikepenz.materialdrawer.model.ProfileDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader
 import com.mikepenz.materialdrawer.util.DrawerImageLoader
-import ui.screens.ContactsFragment
+import ui.screens.contacts.ContactsFragment
+import ui.screens.groups.AddContactsFragment
 import ui.screens.settings.SettingsFragment
 
 // this class controls the entire navigation menu.
@@ -125,6 +126,7 @@ class AppDrawer() {
 
     private fun clickToItem(position: Int) {
         when (position) {
+            1 -> replaceFragment(AddContactsFragment())
             6 -> replaceFragment(SettingsFragment())
             3 -> replaceFragment(ContactsFragment())
 

@@ -5,7 +5,7 @@ import com.example.columba.database.*
 import com.example.columba.utilits.AppValueEventListener
 import com.example.columba.utilits.showToast
 import kotlinx.android.synthetic.main.fragment_change_username.*
-import ui.screens.BaseChangeFragment
+import ui.screens.base.BaseChangeFragment
 import java.util.*
 
 /* Фрагмент для изменения username пользователя */
