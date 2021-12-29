@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.columba.R
 import com.example.columba.models.CommonModel
 import com.example.columba.utilits.APP_ACTIVITY
+import com.example.columba.utilits.getPlulars
 import com.example.columba.utilits.hideKeyboard
 import com.example.columba.utilits.showToast
 import kotlinx.android.synthetic.main.fragment_create_group.*
@@ -18,13 +19,13 @@ class CreateGroupFragment(private var listContacts: List<CommonModel>) :
     override fun onResume() {  // fragment lifecycle
         super.onResume()
         APP_ACTIVITY.title = getString(R.string.create_group)
-        APP_ACTIVITY.mAppDrawer.enableDrawer()
         hideKeyboard()
         initRecycleView()
         create_group_btn_complete.setOnClickListener {
             showToast("Click")
         }
         create_group_input.requestFocus()
+        create_group_counts.text = getPlulars(listContacts.size)
     }
 
     private fun initRecycleView() {

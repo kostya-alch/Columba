@@ -1,19 +1,15 @@
 package ui.screens.groups
 
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.columba.R
 import com.example.columba.database.*
 import com.example.columba.models.CommonModel
-import com.example.columba.utilits.APP_ACTIVITY
-import com.example.columba.utilits.AppValueEventListener
-import com.example.columba.utilits.hideKeyboard
-import com.example.columba.utilits.replaceFragment
+import com.example.columba.utilits.*
 import kotlinx.android.synthetic.main.fragment_add_contacts.*
-import kotlinx.android.synthetic.main.fragment_main_list.*
+import ui.screens.base.BaseFragment
 
 
-class AddContactsFragment : Fragment(R.layout.fragment_add_contacts) {
+class AddContactsFragment : BaseFragment(R.layout.fragment_add_contacts) {
 
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mAdapter: AddContactsAdapter
@@ -23,13 +19,17 @@ class AddContactsFragment : Fragment(R.layout.fragment_add_contacts) {
     private var mListItems = listOf<CommonModel>()
 
     override fun onResume() {  // fragment lifecycle
+        listContacts.clear()
         super.onResume()
         APP_ACTIVITY.title = "Добавить участника"
-        APP_ACTIVITY.mAppDrawer.enableDrawer()
         hideKeyboard()
         initRecycleView()
         add_contacts_btn_next.setOnClickListener {
-            replaceFragment(CreateGroupFragment(listContacts))
+            if (listContacts.isEmpty()) {
+                showToast("Добавьте участника")
+            } else {
+                replaceFragment(CreateGroupFragment(listContacts))
+            }
         }
     }
 
