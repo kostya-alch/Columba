@@ -10,6 +10,7 @@ Rus:
 5. Запустить приложение. 
 6. Если хотите пользоваться мессенджером - пишите автору приложения за аккаунтами, динамической регистрации по номерам пока нет. 
 7. Скомпилить приложение и создать .apk файл если надо. Только автора указывайте.
+8. Тестовый аккаунт: login: +7 931 313-32-32, password: 123456
 
 Eng: 
 Columba mobile messenger is designed for people to communicate with each other. The development is carried out by only one person - so it is slow, like a calm in the sea.
